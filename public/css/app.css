@@ -73,3 +73,11 @@ html {
 .displayNone {
     display: none;
 }
+
+#close {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    font-weight: 700;
+    cursor: pointer;
+}

@@ -1,8 +1,9 @@
 {% for label, messages in app.flashes %}
 	<div class="container flashMessage">
 		<div class="row center">
-			<div class="col s6">
+			<div class="col s12 m12">
 				<div class="materialert {{ label }} center">
+					<span id='close'>x</span>
 					{% if label is same as ("success") %}
 						<div class="material-icons">check</div>
 					{% else %}
