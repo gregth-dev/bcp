@@ -49,6 +49,11 @@ class User implements UserInterface
      */
     private $fonction;
 
+    public function __construct()
+    {
+        $this->setFonction("technicien");
+    }
+
     public function getId(): ?int
     {
         return $this->id;
