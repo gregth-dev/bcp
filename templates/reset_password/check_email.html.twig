@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récupérer son mot de passe
+{% endblock %}
+
+{% block body %}
+	<h3 class="header center orange-text">Récupérer votre mot de passe</h3>
+	<div class="row">
+		<div class="col s12 m4 offset-m4">
+			<div class="center">
+				<div>
+					<p>
+						Un email vous a été envoyé afin de pouvoir récupérer votre mot de passe. Ce lien expirera dans
+						{{ tokenLifetime|date('g') }}
+						heure(s).
+					</p>
+				</div>
+				<p>
+					Si vous n'avez pas reçu le mail cliquez ici
+					<a href="{{ path('app_forgot_password_request') }}">renvoyé le mot de passe</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

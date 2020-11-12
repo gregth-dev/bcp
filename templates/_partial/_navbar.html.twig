@@ -1,33 +1,72 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
 	<li>
-		<a href="#!">Mes informations</a>
+		<a class="orange-text text-darken-4" href="#!">Mes informations</a>
 	</li>
 	<li>
-		<a href="#!">Mon email</a>
+		<a class="orange-text text-darken-4" href="#!">Mon email</a>
 	</li>
 	<li class="divider"></li>
 	<li>
-		<a href="#!">Mon mot de passe</a>
+		<a class="orange-text text-darken-4" href="#!">Mon mot de passe</a>
+	</li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+	<li>
+		<a class="orange-text text-darken-4" href="#!">Mes informations</a>
+	</li>
+	<li>
+		<a class="orange-text text-darken-4" href="#!">Mon email</a>
+	</li>
+	<li class="divider"></li>
+	<li>
+		<a class="orange-text text-darken-4" href="#!">Mon mot de passe</a>
 	</li>
 </ul>
 <nav>
-	<div class="nav-wrapper">
+	<div class="nav-wrapper  yellow lighten-3">
 		<a href="#!" class="brand-logo"><img src="{{asset('img/logo-nav.png')}}" alt="Logo BCP"></a>
+		<a href="#" data-target="mobile-navbar" class="sidenav-trigger orange-text text-darken-4">
+
+			<i class="material-icons">menu</i>
+		</a>
 		<ul class="right hide-on-med-and-down">
 			<li>
-				<a href="#">Ajouter une note</a>
+				<a class="orange-text text-darken-4" href="#">Ajouter une note</a>
+
 			</li>
 			{% if is_granted("ROLE_ADMIN") %}
 				<li>
-					<a href="#">Gestion utilisateurs</a>
+					<a class="orange-text text-darken-4" href="#">Gestion utilisateurs</a>
+
 				</li>
 			{% endif %}
 			<!-- Dropdown Trigger -->
 			<li>
-				<a class="dropdown-trigger" href="#!" data-target="dropdown1">Mon profil<i class="material-icons right">arrow_drop_down</i>
+				<a class="dropdown-trigger orange-text text-darken-4" href="#!" data-target="dropdown1">
+
+					<i class="material-icons left">account_circle</i>Mon profil<i class="material-icons right">arrow_drop_down</i>
 				</a>
 			</li>
 		</ul>
 	</div>
 </nav>
+<ul id="mobile-navbar" class="sidenav yellow lighten-3">
+
+	<li>
+		<a class="orange-text text-darken-4" href="#">Ajouter une note</a>
+	</li>
+	{% if is_granted("ROLE_ADMIN") %}
+		<li>
+			<a class="orange-text text-darken-4" href="#">Gestion utilisateurs</a>
+		</li>
+	{% endif %}
+	<li>
+		<a class="dropdown-trigger orange-text text-darken-4" href="#!" data-target="dropdown2">
+
+			<i class="material-icons left">account_circle</i>Mon profil<i class="material-icons right">arrow_drop_down</i>
+		</a>
+	</li>
+
+
+</ul>
