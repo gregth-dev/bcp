@@ -11,11 +11,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/bcp", name="dashboard")
+     * @Route("/bcp", name="index")
      */
-    public function dashboard(): Response
+    public function index(): Response
     {
-        return $this->render('bcp/dashboard.html.twig', [
+        return $this->render('bcp/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

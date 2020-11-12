@@ -1,0 +1,33 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+	<li>
+		<a href="#!">Mes informations</a>
+	</li>
+	<li>
+		<a href="#!">Mon email</a>
+	</li>
+	<li class="divider"></li>
+	<li>
+		<a href="#!">Mon mot de passe</a>
+	</li>
+</ul>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo"><img src="{{asset('img/logo-nav.png')}}" alt="Logo BCP"></a>
+		<ul class="right hide-on-med-and-down">
+			<li>
+				<a href="#">Ajouter une note</a>
+			</li>
+			{% if is_granted("ROLE_ADMIN") %}
+				<li>
+					<a href="#">Gestion utilisateurs</a>
+				</li>
+			{% endif %}
+			<!-- Dropdown Trigger -->
+			<li>
+				<a class="dropdown-trigger" href="#!" data-target="dropdown1">Mon profil<i class="material-icons right">arrow_drop_down</i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>

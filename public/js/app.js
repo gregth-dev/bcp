@@ -6,10 +6,17 @@ if (flashMessage)
         flashMessage.classList.add('displayNone')
     }, 5000);
 
-window.onload = function () {
-    document.getElementById('close').onclick = function () {
+let closeEl = document.querySelector('#close');
+if (closeEl) {
+    closeEl.onclick = function () {
         this.parentNode.parentNode.parentNode
             .removeChild(this.parentNode.parentNode);
         return false;
     };
-};
+}
+
+$(".dropdown-trigger").dropdown();
+
+
+
+
