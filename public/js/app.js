@@ -21,5 +21,6 @@ if (closeEl) {
 $(document).ready(function () {
     $(".dropdown-trigger").dropdown({ coverTrigger: false, hover: true });
     $('.sidenav').sidenav();
+    $('select').formSelect();
 });
 
