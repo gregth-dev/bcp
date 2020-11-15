@@ -58,9 +58,9 @@ class AccountController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
-            if (!password_verify($passwordupdate->getOldPassword(), $user->getPassword())) {
+            if (!password_verify($passwordupdate->getOldPassword(), $user->getPassword()))
                 $this->addFlash('danger', 'Le mot de passe actuel est incorrect');
-            } else {
+            else {
                 $hash = $encoder->encodePassword($user, $passwordupdate->getNewPassword());
                 $user->setPassword($hash);
                 $manager->persist($user);

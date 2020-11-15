@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'inscrire
+{% block title %}Inscription
 {% endblock %}
 
 {% block body %}
 	{% for flashError in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 	{% endfor %}
-
-	<h3 class="header center orange-text">S'inscrire</h3>
+	<div class="row center">
+		<a href="{{path('index')}}">
+			<img src="img/logo.png" alt="Logo BCP">
+		</a>
+	</div>
 	<div class="row">
 		<div class="col s12 m4 offset-m4">
 			{{ form_start(registrationForm) }}
@@ -24,11 +27,22 @@
 					<span>{{ form_label(registrationForm.agreeTerms) }}</span>
 				</label>
 			</div>
-
 			<div class="center">
 				<button type="submit" class="btn">Inscription</button>
 				{{ form_end(registrationForm) }}
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="section center">
+			<a href="{{path('app_login')}}">
+				Se connecter
+			</a>
+			-
+			<a href="{{path('app_forgot_password_request')}}">
+				Mot de passe oublié
+			</a>
+		</div>
+	</div>
+
 {% endblock %}

@@ -15,7 +15,7 @@ class PasswordUpdate
     /**
      * @Assert\NotBlank(message="Ce champ est obligatoire")
      * @Assert\NotBlank
-     * @Assert\NotCompromisedPassword
+     * @Assert\NotCompromisedPassword(message="Votre mot de passe est compromis merci de le modifier.")
      * @Assert\Regex(pattern="/^(?=.*[A-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/",match=true,message="Sécurité du mot de passe incorrect. Minimum 8 caractères, 1 chiffre, 1 majuscule, 1 caractère spécial")
      */
     private $newPassword;

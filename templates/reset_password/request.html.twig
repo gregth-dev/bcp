@@ -7,20 +7,36 @@
 	{% for flashError in app.flashes('reset_password_error') %}
 		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
 	{% endfor %}
-	<h3 class="header center orange-text">Récupérer votre mot de passe</h3>
+	<div class="row center">
+		<a href="{{path('index')}}">
+			<img src="img/logo.png" alt="Logo BCP">
+		</a>
+	</div>
 	<div class="row">
 		<div class="col s12 m4 offset-m4">
+			<div>
+				<p>
+					Entrez votre email pour récupérer votre mot de passe.
+				</p>
+			</div>
 			{{ form_start(requestForm) }}
 			{{ form_row(requestForm.email) }}
 			<div class="center">
-				<div>
-					<small>
-						Entrez votre email pour récupérer votre mot de passe.
-					</small>
-				</div>
-				<button class="btn">Envoyer</button>
+				<button class="btn">Récupérer mon mot de passe</button>
 			</div>
 		</div>
 		{{ form_end(requestForm) }}
 	</div>
+	<div class="row">
+		<div class="section center">
+			<a href="{{path('app_login')}}">
+				Se connecter
+			</a>
+			-
+			<a href="{{path('app_register')}}">
+				Créer un compte
+			</a>
+		</div>
+	</div>
+
 {% endblock %}

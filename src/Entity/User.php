@@ -23,6 +23,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(message="Adresse email non valide")
      */
     private $email;
 
@@ -40,11 +41,13 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2,max=50, minMessage="Prénom trop court",maxMessage="Prénom trop long")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2,max=50, minMessage="Nom trop court",maxMessage="Nom trop long")
      */
     private $lastName;
 

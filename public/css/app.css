@@ -63,6 +63,7 @@ html {
 .materialert.danger {
     background-color: #c62828;
     color: #fff;
+    font-weight: 700;
 }
 
 .materialert.warning {
@@ -80,4 +81,18 @@ html {
     top: 2px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.error {
+    color: #c62828 !important;
+}
+
+.ns-type-success {
+    background: #43a047 !important;
+    color: #fff;
+}
+
+.ns-type-error {
+    background: #c62828;
+    color: #fff;
 }

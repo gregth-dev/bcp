@@ -1,21 +1,42 @@
 {% for label, messages in app.flashes %}
-	<div class="container flashMessage">
-		<div class="row center">
-			<div class="col s12 m12">
-				<div class="materialert {{ label }} center">
-					<span id='close'>x</span>
-					{% if label is same as ("success") %}
-						<div class="material-icons">check</div>
-					{% else %}
-						<div class="material-icons">warning</div>
-					{% endif %}
-					{% for message in messages %}
-						<p>
-							<strong>{{ message }}</strong>
-						</p>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
+	<div class="container">
+		{% for message in messages %}
+			{% if label == 'success' %}
+				<script>
+					$(document).ready(function () {
+var notification = new NotificationFx({
+wrapper: document.body,
+message: '{{ message }}',
+layout: 'growl',
+effect: 'slide',
+type: 'success',
+ttl: 3000,
+onClose: function () {
+return false;
+},
+onOpen: function () {
+return false;
+}
+});
+notification.show();
+
+})
+				</script>
+			{% endif %}
+			{% if label == 'danger' %}
+				<script>
+					var notification = new NotificationFx({
+wrapper: document.body,
+message: '{{ message }}',
+
+layout: 'growl',
+effect: 'genie',
+type: 'error',
+ttl: 6000
+});
+notification.show();
+				</script>
+			{% endif %}
+		{% endfor %}
 	</div>
 {% endfor %}

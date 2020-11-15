@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class HomeController extends AbstractController
@@ -13,10 +15,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/bcp", name="index")
      */
-    public function index(): Response
+    public function index(Security $security): Response
     {
-        return $this->render('bcp/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $firstName = ucfirst($this->getUser()->getFirstName());
+        $this->addFlash('success', "Bonjour $firstName !");
+        return $this->render('bcp/index.html.twig');
     }
 }
