@@ -19,7 +19,7 @@ class HomeController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $firstName = ucfirst($this->getUser()->getFirstName());
-        $this->addFlash('success', "Bonjour $firstName !");
+        $this->addFlash('success', "Bienvenue $firstName !");
         return $this->render('bcp/index.html.twig');
     }
 }

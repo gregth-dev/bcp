@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Symfony\Component\Form\AbstractType;
+use App\Form\FormExtension\HoneyPotType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -14,10 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class RegistrationFormType extends AbstractType
+class RegistrationFormType extends HoneyPotType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //On fait appel au builder de notre classe parent HoneyPotType
+        parent::buildForm($builder, $options);
         $builder
             ->add('firstName', TextType::class, [
                 'label' => "Votre prénom",
@@ -42,7 +44,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'attr' => ['icon' => 'lock'],
-                // instead of being set onto the object directly,
+                // instead of being set into the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'constraints' => [

@@ -29,8 +29,14 @@
 			</div>
 			<div class="center">
 				<button type="submit" class="btn">Inscription</button>
-				{{ form_end(registrationForm) }}
 			</div>
+			<fieldset class="candy">
+				{{ form_widget(registrationForm.phone) }}
+			</fieldset>
+			<fieldset class="candy">
+				{{ form_row(registrationForm.city) }}
+			</fieldset>
+				{{ form_end(registrationForm) }}
 		</div>
 	</div>
 	<div class="row">
