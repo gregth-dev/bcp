@@ -71,7 +71,7 @@ class AppUserAuthenticator extends AbstractFormLoginAuthenticator implements Pas
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email introuvable.');
+            throw new CustomUserMessageAuthenticationException('Compte introuvable.');
         }
 
         return $user;

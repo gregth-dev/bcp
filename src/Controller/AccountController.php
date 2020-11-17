@@ -50,23 +50,23 @@ class AccountController extends AbstractController
      */
     public function editPassword(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
-        $passwordupdate = new PasswordUpdate();
         $this->denyAccessUnlessGranted('ROLE_USER');
+        $passwordupdate = new PasswordUpdate();
         $user = $this->getUser();
         $form = $this->createForm(UserPasswordType::class, $passwordupdate);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
-            if (!password_verify($passwordupdate->getOldPassword(), $user->getPassword()))
+            if (!password_verify($passwordupdate->getActualPassword(), $user->getPassword()))
                 $this->addFlash('danger', 'Le mot de passe actuel est incorrect');
             else {
                 $hash = $encoder->encodePassword($user, $passwordupdate->getNewPassword());
                 $user->setPassword($hash);
                 $manager->persist($user);
                 $manager->flush();
-                $this->addFlash('success', 'Votre mot de passe a été mis à jour');
-                return $this->redirectToRoute('index');
+                //message sera affiché lors de la déconnexion
+                return $this->redirectToRoute('app_logout', ['message' => "Votre mot de passe a été mis à jour"]);
             }
         }
 

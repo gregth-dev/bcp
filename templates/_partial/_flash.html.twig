@@ -37,6 +37,20 @@ ttl: 6000
 notification.show();
 				</script>
 			{% endif %}
+			{% if label == 'info' %}
+				<script>
+					var notification = new NotificationFx({
+wrapper: document.body,
+message: '{{ message }}',
+
+layout: 'growl',
+effect: 'genie',
+type: 'warning',
+ttl: 6000
+});
+notification.show();
+				</script>
+			{% endif %}
 		{% endfor %}
 	</div>
 {% endfor %}

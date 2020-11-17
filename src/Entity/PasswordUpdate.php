@@ -10,7 +10,7 @@ class PasswordUpdate
     /**
      * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
-    private $oldPassword;
+    private $actualPassword;
 
     /**
      * @Assert\NotBlank(message="Ce champ est obligatoire")
@@ -27,16 +27,16 @@ class PasswordUpdate
     private $confirmPassword;
 
     /**
-     * Get the value of oldPassword
+     * Get the value of actualPassword
      */
-    public function getOldPassword()
+    public function getActualPassword()
     {
-        return $this->oldPassword;
+        return $this->actualPassword;
     }
 
-    public function setOldPassword(string $oldPassword): self
+    public function setActualPassword(string $actualPassword): self
     {
-        $this->oldPassword = $oldPassword;
+        $this->actualPassword = $actualPassword;
 
         return $this;
     }

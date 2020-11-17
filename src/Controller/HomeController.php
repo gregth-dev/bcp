@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/bcp", name="index")
      */
-    public function index(Security $security): Response
+    public function index(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $firstName = ucfirst($this->getUser()->getFirstName());
